@@ -1,9 +1,9 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 /**
  * Functional component for congratulatory message.
- * @function
+ * @function Congrats
  * @param {object} props - React props
  * @returns {JSX.Element}
  */
@@ -24,5 +24,5 @@ const Congrats = props => {
 export default Congrats;
 
 Congrats.propTypes = {
-  success: propTypes.bool.isRequired
+  success: PropTypes.bool.isRequired
 };

@@ -8,7 +8,7 @@ const defaultProps = { success: false };
 
 /**
  * @function setup
- * @param {object} props
+ * @param {object} props - React props specific for this setup.
  * @returns {ShallowWrapper}
  */
 const setup = (props = {}) => {
