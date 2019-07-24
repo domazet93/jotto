@@ -9,13 +9,16 @@ Enzyme.configure({
   adapter: new EnzymeAdapter()
 });
 
+const defaultProps = { success: false };
+
 /**
  * @function setup
  * @param {object} props
  * @returns {ShallowWrapper}
  */
-const setup = props => {
-  return shallow(<Congrats {...props} />);
+const setup = (props = {}) => {
+  const setUpProp = { ...defaultProps, ...props };
+  return shallow(<Congrats {...setUpProp} />);
 };
 
 it('renders without error', () => {
