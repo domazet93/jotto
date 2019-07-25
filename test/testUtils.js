@@ -1,6 +1,6 @@
 import checkPropTypes from 'check-prop-types';
 
-import rootReducer from '../src//reducers';
+import rootReducer from '../src/reducers/index';
 import { createStore } from 'redux';
 
 /**

@@ -7,8 +7,12 @@ import { connect } from 'react-redux';
  * @returns {JSX.Element}
  */
 class Input extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    const contest = this.props.success ? null : (
+    const contents = this.props.success ? null : (
       <form class="form-inline">
         <input
           data-test="input-box"
@@ -25,12 +29,12 @@ class Input extends Component {
         </button>
       </form>
     );
-    return <div data-test="component-input">{contest}</div>;
+    return <div data-test="component-input">{contents}</div>;
   }
 }
 
-const mapStateToProps = state => {
-  return {};
+const mapStateToProps = ({ success }) => {
+  return { success };
 };
 
 export default connect(mapStateToProps)(Input);
