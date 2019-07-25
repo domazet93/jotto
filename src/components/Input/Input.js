@@ -8,7 +8,24 @@ import { connect } from 'react-redux';
  */
 class Input extends Component {
   render() {
-    return <div />;
+    const contest = this.props.success ? null : (
+      <form class="form-inline">
+        <input
+          data-test="input-box"
+          className="mb-2 mx-sm-3"
+          type="text"
+          placeholder="enter guess"
+        />
+        <button
+          data-test="submit-button"
+          className="btn btn-primary mb-2"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    );
+    return <div data-test="component-input">{contest}</div>;
   }
 }
 
