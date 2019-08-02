@@ -10,8 +10,8 @@ export const actionTypes = {
  * @param {string} guessWord
  * @returns {function} - Redux Thunk function
  */
-export const guessWord = guessWord => {
-  return function (dispatch, getState) {
+export const guessWord = guessedWord => {
+  return function(dispatch, getState) {
 
   };
 };
