@@ -1,8 +1,8 @@
 import checkPropTypes from 'check-prop-types';
-import thunk from 'redux-thunk';
+
 import rootReducer from '../src/reducers/index';
 import { createStore, applyMiddleware } from 'redux';
-
+import { middlewares } from '../src/configureStore';
 /**
  * Create a testing store with imported reducers, middleware, and initial state.
  * @function storeFactory
@@ -10,7 +10,8 @@ import { createStore, applyMiddleware } from 'redux';
  * @returns {Store} - Redux store
  */
 export const storeFactory = initialState => {
-  return createStore(rootReducer, initialState, applyMiddleware(thunk));
+  const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
+  return createStoreWithMiddleware(rootReducer, initialState);
 };
 
 /**
