@@ -9,10 +9,6 @@ import { guessWord } from '../../actions';
  * @returns {JSX.Element}
  */
 class Input extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const contents = this.props.success ? null : (
       <form class="form-inline">
