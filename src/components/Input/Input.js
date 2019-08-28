@@ -28,17 +28,17 @@ export class UnconnectedInput extends Component {
 
   render() {
     const contents = this.props.success ? null : (
-      <form class="form-inline">
+      <form className="form-inline">
         <input
           data-test="input-box"
           ref={this.inputBox}
-          className="mb-2 mx-sm-3"
+          className="mb-2 form-control"
           type="text"
           placeholder="enter guess"
         />
         <button
           data-test="submit-button"
-          className="btn btn-primary mb-2"
+          className="btn btn-primary mx-sm-3 mb-2"
           type="submit"
           onClick={this.submitGuessedWord}
         >
