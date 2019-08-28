@@ -1,6 +1,21 @@
 import axios from 'axios';
 
 import { getLetterMatchCount } from '../helpers';
+
+const WORDNIK_API_KEY = process.env.REACT_APP_WORDNIK_API_KEY;
+const wordnikApiUrl = 'https://api.wordnik.com/v4';
+const wordnikAxiosInstance = axios.create({
+  baseURL: wordnikApiUrl
+});
+
+wordnikAxiosInstance.interceptors.request.use(config => ({
+  ...config,
+  params: {
+    api_key: WORDNIK_API_KEY,
+    ...config.params
+  }
+}));
+
 export const actionTypes = {
   CORRECT_GUESS: 'CORRECT_GUESS',
   GUESS_WORD: 'GUESS_WORD',
@@ -37,10 +52,10 @@ export const guessWord = guessedWord => {
 
 export const getSecretWord = () => {
   return dispatch => {
-    return axios.get('http://localhost:3030').then(response => {
+    return wordnikAxiosInstance.get('/words.json/randomWord').then(response => {
       dispatch({
         type: actionTypes.SET_SECRET_WORD,
-        payload: response.data
+        payload: response.data.word
       });
     });
   };
